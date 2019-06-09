@@ -1,9 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 
-export default class TodoApp extends React.Component {
+export default class MovieLibrary extends React.Component {
+
+	componentWillMount() {
+		axios.get('http://localhost:3000/api/movies').then(response => {
+			console.log(response.data);
+		})
+	}
+
 	render() {
 		return (
-			<p>test</p>
+			<p>Movie Library</p>
 		);
 	}
 }
