@@ -19,8 +19,6 @@ app.get('/api/movies', (req, res, next) => {
 	})
 });
 
-console.log(apiURL, apiKey);
-
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`);
 });
