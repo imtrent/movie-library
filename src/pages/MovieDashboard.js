@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import { getPopular } from './../api/APIUtils';
+import Movies from './../components/Movies';
 
 const MovieDashboard = () => {
-    const [movies, setMovies] = useState([]);
+    const [movieList, setMovieList] = useState([]);
 
     const init = () => {
         getPopular().then(data => {
-            setMovies(data);
+            setMovieList(data.results);
         });
     };
 
@@ -16,7 +17,7 @@ const MovieDashboard = () => {
     return (
         <div>
             <p>Movie Dashboard</p>
-            {JSON.stringify(movies)}
+            <Movies movieList={movieList} />
         </div>
     );
 };
