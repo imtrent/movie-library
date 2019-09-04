@@ -1,7 +1,7 @@
-# Movie Application - W.I.P
+# Movie Application
 
-Movie library application built with React and Redux
+Movie library built with React and TMDb API.
 
 ### Commands
 
-Start application in development mode `npm start`
+Start application in development mode `npm start`.
