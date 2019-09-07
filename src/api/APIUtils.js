@@ -1,7 +1,7 @@
 import { apiUrl, apiKey } from './../config';
 require('dotenv').config();
 
-export const getPopular = (type, page = '1') => {
+export const getMovies = (type = 'popular', page = '1') => {
     return fetch(`${apiUrl}/movie/${type}${apiKey}&page=${page}`, {
         method: 'GET'
     })
