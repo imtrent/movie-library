@@ -1,0 +1,59 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: $black;
+    color: white;
+
+    h1 {
+        margin: 3rem 0;
+        padding-left: 3rem;
+
+        a {
+            color: white;
+        }
+    }
+
+    h4 {
+        margin: 0 0 1rem 0;
+        color: white;
+        font-weight: $font-med;
+        font-size: 1.4rem;
+        padding-left: 3rem;
+    }
+
+    .group {
+        margin-bottom: 3rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .nav-list,
+    .categories {
+        li {
+            transition: 0.27s ease;
+
+            &:hover a {
+                background-color: rgba($dark-gray, 0.1);
+            }
+
+            a {
+                font-size: 1.4rem;
+                border-left: 2px solid transparent;
+                color: $dark-gray;
+                display: block;
+                padding: 1rem 0 1rem 3rem;
+
+                &.active {
+                    color: white;
+                    background-color: rgba($dark-gray, 0.1);
+                    border-left: 2px solid $primary-color;
+                }
+            }
+        }
+    }
+}
