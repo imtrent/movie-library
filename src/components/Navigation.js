@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { getCategories } from '../api/APIUtils';
 import Genres from './Genres';
 
-const Navigation = () => {
+const Navigation = props => {
     const [genreList, setGenreList] = useState([]);
     const [active, setActive] = useState('popular');
 
@@ -31,17 +31,20 @@ const Navigation = () => {
                 <h4>Browse</h4>
                 <ul className="nav-list">
                     <li>
-                        <NavLink to="/popular" activeClassName="active">
+                        <NavLink to="/browse/popular" activeClassName="active">
                             Popular
                         </NavLink>
                     </li>
                     <li onClick={handleChange}>
-                        <NavLink to="/latest" activeClassName="active">
-                            Latest
+                        <NavLink
+                            to="/browse/top_rated"
+                            activeClassName="active"
+                        >
+                            Top Rated
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/upcoming" activeClassName="active">
+                        <NavLink to="/browse/upcoming" activeClassName="active">
                             Upcoming
                         </NavLink>
                     </li>
