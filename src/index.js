@@ -15,10 +15,4 @@ const app = (
     </Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('react-root'));
-
 ReactDOM.render(app, document.getElementById('react-root'));
-
-// store.dispatch(init()).then(() => {
-//     ReactDOM.render(app, document.getElementById('react-root'));
-// });
