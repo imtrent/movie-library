@@ -1,32 +1,22 @@
-import { apiUrl, apiKey } from './../config';
+import { API, APIUrl, APIKey } from './../config';
 require('dotenv').config();
 
-export const getCategories = () => {
-    return fetch(`${apiUrl}/genre/movie/list${apiKey}`, {
-        method: 'GET'
-    })
-        .then(res => {
-            return res.json();
-        })
-        .catch(err => console.log(err));
+export const getCategories = async () => {
+    try {
+        const res = await fetch(`${APIUrl}/genre/movie/list${APIKey}`, {
+            method: 'GET'
+        });
+        return res.json();
+    } catch (err) {
+        return console.log(err);
+    }
 };
 
-export const getMovies = (type = 'popular', page = '1') => {
-    return fetch(`${apiUrl}/movie/${type}${apiKey}&page=${page}`, {
-        method: 'GET'
-    })
-        .then(res => {
-            return res.json();
-        })
-        .catch(err => console.log(err));
-};
-
-export const getSingleMovie = id => {
-    return fetch(`${apiUrl}/movie/${id}${apiKey}`, {
-        method: 'GET'
-    })
-        .then(res => {
-            return res.json();
-        })
-        .catch(err => console.log(err));
+export const getSingleMovie = async id => {
+    try {
+        const res = await API.get(`/movie/${id}${APIKey}`);
+        return res.data;
+    } catch (err) {
+        return console.log(err);
+    }
 };
