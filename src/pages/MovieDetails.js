@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { posterURL } from './../config';
 import { getSingleMovie } from '../api/APIUtils';
 
 const MovieDetails = props => {
@@ -17,8 +18,17 @@ const MovieDetails = props => {
 
     return (
         <div className="wrapper">
-            <p>yo yo yo</p>
-            {JSON.stringify(movie)}
+            <div className="movie-details">
+                <div
+                    className="poster"
+                    style={{
+                        backgroundImage: `url(${posterURL}/${movie.poster_path})`
+                    }}
+                ></div>
+                <div>
+                    <h1>{movie.original_title}</h1>
+                </div>
+            </div>
         </div>
     );
 };
