@@ -1,0 +1,10 @@
+.movie-details {
+    display: flex;
+    .poster {
+        height: 350px;
+        width: 225px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

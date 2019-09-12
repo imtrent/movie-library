@@ -1,0 +1,14 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    display: inline-block;
+    background-color: $primary-color;
+    color: white;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+}
