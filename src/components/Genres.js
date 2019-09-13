@@ -13,7 +13,9 @@ const Genres = props => {
             {props.genreList.map((genre, i) => (
                 <li key={`${genre}-${i}`} onClick={listGenre}>
                     <NavLink
-                        to={`/genre/${genre.name.toLowerCase()}`}
+                        to={`/genre/${genre.name
+                            .toLowerCase()
+                            .replace(/ /g, '-')}`}
                         activeClassName="active"
                         key={genre.name.toLower}
                         data-id={genre.id}
