@@ -37,7 +37,7 @@ const Navigation = props => {
                     </li>
                     <li onClick={handleChange}>
                         <NavLink
-                            to="/browse/top_rated"
+                            to="/browse/top-rated"
                             activeClassName="active"
                         >
                             Top Rated
