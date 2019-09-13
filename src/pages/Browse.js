@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import queryString from 'query-string';
 import { getBrowse } from '../actions/movies';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
 
 const Browse = props => {
-    const type = props.match.params.type;
-    const page = '2';
+    const type = props.match.params.type.replace(/-/g, '_');
+    const page = queryString.parse(props.location.search).page || 1;
 
     const loadData = (type, page) => {
         props.init(type, page);
@@ -14,7 +15,8 @@ const Browse = props => {
 
     useEffect(() => {
         loadData(type, page);
-    }, [loadData, type]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [window.location.search, type]);
 
     return (
         <div className="wrapper">

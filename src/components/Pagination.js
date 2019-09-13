@@ -12,7 +12,10 @@ const Pagination = ({ page, totalPages }) => {
                 </Link>
             )}
             {page === totalPages ? null : (
-                <Link to={`${url}?page=${page * 1 + 1}`} className="button">
+                <Link
+                    to={`${url}?page=${page * 1 + 1}`}
+                    className="button plus"
+                >
                     Page {page * 1 + 1}
                 </Link>
             )}
