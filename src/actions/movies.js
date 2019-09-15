@@ -15,8 +15,13 @@ export const init = () => async dispatch => {
     dispatch(setMovies(res.data));
 };
 
-export const getGenre = id => async dispatch => {
-    const res = await API.get(`/discover/movie${APIKey}&with_genres=${id}`);
+export const getGenre = (type, page = '1') => async dispatch => {
+    const res = await API.get(`/discover/movie${APIKey}`, {
+        params: {
+            with_genres: type,
+            page
+        }
+    });
     dispatch(setMovies(res.data));
 };
 
