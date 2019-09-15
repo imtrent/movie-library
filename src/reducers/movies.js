@@ -5,7 +5,7 @@ const moviesReducer = (state = movieReducerDefaultState, action) => {
         case 'SET_MOVIES':
             return action.movies;
         default:
-            return [...state];
+            return state;
     }
 };
 
