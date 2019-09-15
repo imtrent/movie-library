@@ -1,58 +1,67 @@
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: $black;
-    color: white;
+    margin: 3rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .input {
+        position: relative;
+    }
 
     h1 {
-        margin: 3rem 0;
-        padding-left: 3rem;
+        color: $black;
+        margin: 0;
 
-        a {
-            color: white;
+        &:hover {
+            color: $primary-color;
         }
     }
 
-    h4 {
-        margin: 0 0 1rem 0;
-        color: white;
-        font-weight: $font-med;
+    input {
+        background-color: #f9f9f9;
+        height: 35px;
+        border: none;
+        border-radius: 17.5px;
+        width: 300px;
+        padding: 0 2rem;
         font-size: 1.4rem;
-        padding-left: 3rem;
+        box-sizing: border-box;
+        color: darken($dark-gray, 30%);
     }
 
-    .group {
-        margin-bottom: 3rem;
+    button[type='submit'] {
+        position: absolute;
+        padding: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        margin-right: 2rem;
+        cursor: pointer;
 
-        &:last-of-type {
-            margin-bottom: 0;
+        svg {
+            width: 14px;
+            height: 14px;
+            path {
+                fill: darken($dark-gray, 30%);
+            }
         }
     }
+}
 
-    .nav-list,
-    .categories {
-        li {
-            transition: 0.27s ease;
+nav ul {
+    display: flex;
 
-            &:hover a {
-                background-color: rgba($dark-gray, 0.1);
-            }
+    li {
+        margin-right: 3rem;
+        font-size: 1.6rem;
+        a {
+            color: $light-gray;
 
-            a {
-                font-size: 1.4rem;
-                border-left: 2px solid transparent;
-                color: $dark-gray;
-                display: block;
-                padding: 1rem 0 1rem 3rem;
-
-                &.active {
-                    color: white;
-                    background-color: rgba($dark-gray, 0.1);
-                    border-left: 2px solid #23c4f8;
-                }
+            &.active {
+                color: $black;
             }
         }
     }
