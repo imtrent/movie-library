@@ -25,6 +25,16 @@ export const getGenre = (type, page = '1') => async dispatch => {
     dispatch(setMovies(res.data));
 };
 
+export const getSearch = search => async dispatch => {
+    const res = await API.get(`/search/movie${APIKey}`, {
+        params: {
+            query: search
+        }
+    });
+
+    dispatch(setMovies(res.data));
+};
+
 export const getBrowse = (type, page = '1') => async dispatch => {
     const res = await API.get(`/movie/${type}${APIKey}`, {
         params: {
