@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 import { getBrowse } from '../actions/movies';
+import Navigation from '../components/Navigation';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
 
@@ -19,7 +20,8 @@ const Browse = props => {
     }, [window.location.search, type]);
 
     return (
-        <div className="wrapper">
+        <div>
+            <Navigation />
             <MovieList movies={props.movies} />
             <Pagination
                 page={props.movies.page}
