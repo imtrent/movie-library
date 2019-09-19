@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from './../components/Header';
 import Browse from './../pages/Browse';
 import Genre from './../pages/Genre';
+import Search from './../pages/Search';
 import NotFound from './../pages/NotFound';
 import MovieDetails from './../pages/MovieDetails';
 
@@ -30,6 +31,10 @@ const AppRouter = () => {
                     <Route
                         path="/movie/:id"
                         render={props => <MovieDetails {...props} />}
+                    />
+                    <Route
+                        path="/search/:id"
+                        render={props => <Search {...props} />}
                     />
                     <Route component={NotFound} />
                 </Switch>
