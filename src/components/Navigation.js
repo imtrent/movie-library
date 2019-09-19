@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import Genres from './Genres';
+import Genres from './Genres';
 
 const Navigation = props => {
+    let genre = window.location.pathname.includes('genre');
     return (
         <nav>
             <ul className="nav-list">
@@ -21,11 +22,11 @@ const Navigation = props => {
                         Upcoming
                     </NavLink>
                 </li>
+                <li>
+                    <p className={genre ? 'active' : null}>Genres</p>
+                    <Genres />
+                </li>
             </ul>
-            {/*<div className="group">
-                <h4>Genres</h4>
-                <Genres />
-            </div>*/}
         </nav>
     );
 };
