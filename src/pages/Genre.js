@@ -15,11 +15,10 @@ const Genre = props => {
 
     useEffect(() => {
         loadData(type, page);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [window.location.search, type]);
 
     return (
-        <div className="wrapper content">
+        <div className="content">
             <h1>{props.match.params.type.replace(/-/g, ' ')}</h1>
             <MovieList movies={props.movies} />
             <Pagination

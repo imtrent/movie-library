@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 import { getBrowse } from '../actions/movies';
-import Navigation from '../components/Navigation';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
 
@@ -16,12 +15,10 @@ const Browse = props => {
 
     useEffect(() => {
         loadData(type, page);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [window.location.search, type]);
 
     return (
         <div>
-            <Navigation />
             <MovieList movies={props.movies} />
             <Pagination
                 page={props.movies.page}
