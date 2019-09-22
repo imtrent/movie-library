@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from './../components/Header';
+import Navigation from './../components/Navigation';
 import Browse from './../pages/Browse';
 import Genre from './../pages/Genre';
 import Search from './../pages/Search';
@@ -12,6 +13,7 @@ const AppRouter = () => {
         <BrowserRouter>
             <div className="container">
                 <Header />
+                <Navigation />
                 <Switch>
                     <Route path="/" exact={true}>
                         <Redirect from="/" to="/browse/popular" />
