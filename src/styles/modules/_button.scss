@@ -21,7 +21,23 @@
     border-radius: 2rem;
     transition: 0.27s ease;
 
+    &.flex {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    svg {
+        margin-right: 1rem;
+        path {
+            fill: #2c6acb;
+        }
+    }
+
     &:hover {
+        svg path {
+            fill: #e9f0fd;
+        }
         background-color: #2c6acb;
         color: #e9f0fd;
     }

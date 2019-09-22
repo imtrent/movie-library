@@ -1,5 +1,5 @@
 header {
-    margin: 3rem 0;
+    margin: 3rem 0 5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -40,6 +40,7 @@ header {
         border: none;
         margin-right: 2rem;
         cursor: pointer;
+        font-size: 0;
 
         svg {
             width: 14px;
@@ -53,16 +54,36 @@ header {
 
 nav ul {
     display: flex;
+    margin-bottom: 3rem;
 
     li {
+        position: relative;
         margin-right: 3rem;
         font-size: 1.6rem;
-        a {
+        a,
+        p {
             color: $light-gray;
+            margin: 0;
+            cursor: pointer;
 
             &.active {
                 color: $black;
             }
+        }
+
+        &:hover ul {
+            display: flex;
+        }
+
+        ul {
+            position: absolute;
+            width: 200px;
+            margin-top: 2rem;
+            padding: 2rem 1rem;
+            top: 0;
+            display: none;
+            flex-direction: column;
+            background-color: #f9f9f9;
         }
     }
 }

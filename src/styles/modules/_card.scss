@@ -8,7 +8,8 @@
 
 .card {
     max-width: 225px;
-    margin: 0 1.5rem;
+    margin: 0 1.5rem 3rem;
+
     div {
         width: 225px;
         height: 350px;
@@ -19,20 +20,37 @@
     }
 
     h4 {
-        font-size: 16px;
+        font-size: 1.8rem;
         font-weight: $font-semi;
         color: $black;
-        margin: 1rem 0 0 0;
+        margin: 1rem 0 1.5rem;
+    }
+
+    a, p {
+        color: $light-gray;
+        font-size: 1.4rem;
+        margin: 0;
     }
 
     .rating {
         height: auto;
-        display: flex;
-        align-items: center;
+        width: auto;
+        display: inline-flex;
+
+        p {
+            margin-right: 0.5rem;
+        }
 
         svg {
             width: 15px;
             height: 15px;
         }
+    }
+
+    .info {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }
