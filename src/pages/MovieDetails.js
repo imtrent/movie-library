@@ -8,6 +8,7 @@ const MovieDetails = props => {
     const [movie, setMovie] = useState([]);
     const [recommended, setRecommended] = useState([]);
     const [trailer, setTrailer] = useState('');
+    const [loading, setLoading] = useState(true);
 
     const loadMovie = id => {
         getSingleMovie(id).then(res => {
@@ -15,6 +16,7 @@ const MovieDetails = props => {
             if (res.videos.results.length !== 0) {
                 setTrailer(res.videos.results[0].key);
             }
+            setLoading(false);
         });
     };
 
@@ -36,6 +38,11 @@ const MovieDetails = props => {
     // Convert minutes to h:m
     let runtime = movie.runtime;
     runtime = Math.floor(runtime / 60) + 'h ' + (runtime % 60) + 'm';
+
+    // If data is loading, render the loading component
+    if (loading) {
+        return 'is loading';
+    }
 
     return (
         <div className="movie-details">
@@ -76,7 +83,15 @@ const MovieDetails = props => {
             </div>
             <div className="recommended">
                 <h2>Recommended Movies</h2>
-                <MovieList movies={recommended} />
+                {recommended.results === undefined ||
+                recommended.results.length !== 0 ? (
+                    <MovieList movies={recommended} />
+                ) : (
+                    <p>
+                        There are no recommendations based on the movie{' '}
+                        {movie.original_title}
+                    </p>
+                )}
             </div>
         </div>
     );

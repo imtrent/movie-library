@@ -1,26 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getGenres, setSelected } from './../actions/genres';
+import { getGenres } from './../api/APIUtils';
 
 const Genres = props => {
-    const loadGenres = () => {
-        props.getGenres();
-    };
+    const [genres, setGenres] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const setNewGenre = e => {
-        props.setSelectedGenre(e.target.dataset.genre, e.target.dataset.id);
+    const loadGenres = () => {
+        getGenres().then(res => {
+            setGenres(res.data);
+            setLoading(false);
+        });
     };
 
     useEffect(() => {
         loadGenres();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    if (loading) {
+        return 'loading';
+    }
 
     return (
         <ul className="categories">
-            {props.genres.genres.map((genre, i) => (
-                <li key={`${genre}-${i}`} onClick={setNewGenre}>
+            {genres.genres.map((genre, i) => (
+                <li key={`${genre}-${i}`}>
                     <NavLink
                         to={`/genre/${genre.name
                             .toLowerCase()
@@ -38,18 +42,4 @@ const Genres = props => {
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        genres: state.genres
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    getGenres: () => dispatch(getGenres()),
-    setSelectedGenre: (name, id) => dispatch(setSelected(name, id))
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Genres);
+export default Genres;

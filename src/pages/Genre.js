@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
-import { getGenre } from '../actions/movies';
+import { getGenre } from './../api/APIUtils';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
 
 const Genre = props => {
-    const type = props.genres.selected.id;
+    const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const type = '18';
     const page = queryString.parse(props.location.search).page || 1;
 
     const loadData = (type, page) => {
-        props.init(type, page);
+        getGenre(type, page).then(res => {
+            setMovies(res.data);
+        });
     };
 
     useEffect(() => {
@@ -20,27 +24,10 @@ const Genre = props => {
     return (
         <div className="content">
             <h1>{props.match.params.type.replace(/-/g, ' ')}</h1>
-            <MovieList movies={props.movies} />
-            <Pagination
-                page={props.movies.page}
-                totalPages={props.movies.total_pages}
-            />
+            <MovieList movies={movies} />
+            <Pagination page={movies.page} totalPages={movies.total_pages} />
         </div>
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        movies: state.movies,
-        genres: state.genres
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    init: (type, page) => dispatch(getGenre(type, page))
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Genre);
+export default Genre;

@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { getSearch } from './../actions/movies';
 import Search from './Search';
 
 const Header = props => {
