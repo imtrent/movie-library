@@ -7,6 +7,7 @@ import Genre from './../pages/Genre';
 import Search from './../pages/Search';
 import NotFound from './../pages/NotFound';
 import MovieDetails from './../pages/MovieDetails';
+import Footer from './../components/Footer';
 
 const AppRouter = () => {
     return (
@@ -35,12 +36,13 @@ const AppRouter = () => {
                         render={props => <MovieDetails {...props} />}
                     />
                     <Route
-                        path="/search/:id"
+                        path="/search/:search"
                         render={props => <Search {...props} />}
                     />
                     <Route component={NotFound} />
                 </Switch>
             </div>
+            <Footer />
         </BrowserRouter>
     );
 };

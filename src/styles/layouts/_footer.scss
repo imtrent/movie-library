@@ -1,0 +1,18 @@
+footer {
+    background-color: #e8eaed;
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        padding: 5rem 0;
+
+        p {
+            margin: 0;
+            font-size: 1.4rem;
+            color: $light-gray;
+
+            a {
+                color: $primary-color;
+            }
+        }
+    }
+}
