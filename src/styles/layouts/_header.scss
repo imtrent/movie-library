@@ -1,9 +1,14 @@
 header {
-    margin: 3rem 0 5rem;
+    margin: 5rem 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .right {
+        display: flex;
+        align-items: center;
+    }
 
     .input {
         position: relative;
@@ -54,12 +59,12 @@ header {
 
 nav ul {
     display: flex;
-    margin-bottom: 3rem;
 
     li {
         position: relative;
         margin-right: 3rem;
         font-size: 1.6rem;
+
         a,
         p {
             color: $light-gray;
