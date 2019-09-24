@@ -1,7 +1,7 @@
 .container {
     max-width: 1400px;
     margin: auto;
-    padding: auto 2.5rem;
+    padding: 0 2.5rem;
 }
 
 .row {
@@ -13,7 +13,7 @@
 
 .column {
 	flex-basis: 100%;
-	padding: 0 15px;
+	padding: 0 1.5rem;
 }
 
 .column.flex-4 {
