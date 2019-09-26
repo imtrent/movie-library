@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import { getSearch } from './../api/APIUtils';
+import Loading from './../components/utils/Loading';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
 
@@ -28,7 +29,7 @@ const Search = props => {
     }, [query, page]);
 
     if (loading) {
-        return <p>loading</p>;
+        return <Loading />;
     }
 
     if (movies.results === undefined || movies.results.length === 0) {
