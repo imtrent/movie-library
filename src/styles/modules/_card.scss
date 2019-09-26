@@ -9,6 +9,7 @@
 .card {
     max-width: 225px;
     margin: 0 1.5rem 3rem;
+    flex: 1 1 auto;
 
     div {
         width: 225px;
@@ -19,7 +20,7 @@
         border-radius: 5px;
     }
 
-    h4 {
+    h3 {
         font-size: 1.8rem;
         font-weight: $font-semi;
         color: $black;
@@ -27,7 +28,7 @@
     }
 
     a, p {
-        color: $light-gray;
+        color: $dark-gray;
         font-size: 1.4rem;
         margin: 0;
     }

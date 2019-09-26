@@ -5,26 +5,24 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    .right {
+    h1 {
         display: flex;
         align-items: center;
-    }
-
-    .input {
-        position: relative;
-    }
-
-    h1 {
         color: $black;
         margin: 0;
 
         &:hover {
             color: $primary-color;
         }
+
+        span {
+            font-size: 3.2rem;
+            margin-right: 1rem;
+        }
     }
 
     input {
-        background-color: #f9f9f9;
+        background-color: $light-gray;
         height: 35px;
         border: none;
         border-radius: 17.5px;
@@ -55,6 +53,15 @@ header {
             }
         }
     }
+
+    .right {
+        display: flex;
+        align-items: center;
+    }
+
+    .input {
+        position: relative;
+    }
 }
 
 nav ul {
@@ -67,7 +74,7 @@ nav ul {
 
         a,
         p {
-            color: $light-gray;
+            color: $dark-gray;
             margin: 0;
             cursor: pointer;
 
@@ -88,7 +95,7 @@ nav ul {
             top: 0;
             display: none;
             flex-direction: column;
-            background-color: #f9f9f9;
+            background-color: $light-gray;
         }
     }
 }

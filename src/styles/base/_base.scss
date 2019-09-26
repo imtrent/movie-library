@@ -11,3 +11,12 @@ ul {
     padding: 0;
     list-style-type: none;
 }
+
+.no-results {
+    font-size: 1.6rem;
+    color: $light-gray;
+}
+
+.loading {
+    height: 100vh;
+}

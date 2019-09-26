@@ -1,5 +1,5 @@
 footer {
-    background-color: #e8eaed;
+    background-color: $light-gray;
     .footer-content {
         display: flex;
         justify-content: space-between;
@@ -8,8 +8,7 @@ footer {
         p {
             margin: 0;
             font-size: 1.4rem;
-            color: $light-gray;
-
+            color: black;
             a {
                 color: $primary-color;
             }
