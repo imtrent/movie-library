@@ -48,7 +48,10 @@ const MovieDetails = props => {
         <div className="movie-details">
             <div className="row">
                 <div className="column flex-4">
-                    <img src={`${posterURL}/${movie.poster_path}`} alt="" />
+                    <img
+                        src={`${posterURL}/${movie.poster_path}`}
+                        alt={`${movie.original_title} poster`}
+                    />
                 </div>
                 <div className="column flex-8">
                     <h1>

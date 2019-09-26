@@ -1,6 +1,4 @@
 .movie-details {
-    margin-top: 10rem;
-
     .poster {
     	width: 100%;
     	height: 520px;
@@ -29,14 +27,16 @@
     }
 
     .description {
-        color: $light-gray;
+        color: $dark-gray;
         line-height: 1.5;
     }
 
     .recommended {
-        margin-top: 5rem;
+        margin-top: 10rem;
+
         h2 {
-            font-size: 2.6rem;
+            margin: 0 0 3rem;
+            font-size: 3.2rem;
             font-weight: $font-med;
         }
     }
