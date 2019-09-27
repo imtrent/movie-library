@@ -8,15 +8,20 @@ const Header = props => {
         <header>
             <Link to="/">
                 <h1>
-                    MOVIAC{' '}
                     <span role="img" aria-label="Clapper Board">
-                        🎬
+                        🍿
                     </span>
+                    MOVIAC
                 </h1>
             </Link>
             <div className="right">
                 <Navigation />
                 <Search {...props} />
+            </div>
+            <div className="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </header>
     );

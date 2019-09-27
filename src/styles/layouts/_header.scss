@@ -1,5 +1,5 @@
 header {
-    margin: 5rem 0;
+    margin: 3rem 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -55,6 +55,9 @@ header {
     }
 
     .right {
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
         display: flex;
         align-items: center;
     }
@@ -97,5 +100,23 @@ nav ul {
             flex-direction: column;
             background-color: $light-gray;
         }
+    }
+}
+
+.hamburger {
+    @media screen and (max-width: 1024px) {
+        display: block;
+    }
+    display: none;
+    cursor: pointer;
+    transition: 0.27s ease;
+
+    div {
+        display: block;
+        width: 26px;
+        height: 3px;
+        margin: 5px 0;
+        background-color: $black;
+        border-radius: 3px;
     }
 }
