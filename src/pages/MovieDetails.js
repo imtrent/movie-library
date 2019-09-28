@@ -48,17 +48,28 @@ const MovieDetails = props => {
         <div className="movie-details">
             <div className="row">
                 <div className="column flex-4">
-                    <img
-                        src={`${posterURL}/${movie.poster_path}`}
-                        alt={`${movie.original_title} poster`}
-                    />
+                    {movie.poster_path ? (
+                        <img
+                            src={`${posterURL}/${movie.poster_path}`}
+                            alt={`${movie.original_title} poster`}
+                        />
+                    ) : (
+                        <img src="/images/poster.png" alt={`poster`} />
+                    )}
                 </div>
                 <div className="column flex-8">
                     <h1>
-                        {movie.original_title} ({release})
+                        {movie.original_title}{' '}
+                        {movie.release_date ? '(' + release + ')' : null}
                     </h1>
                     <div className="info">
                         <p>Runtime: {runtime}</p>
+                        <p>
+                            Genres:{' '}
+                            {movie.genres.map(genre => (
+                                <p>{genre.name},</p>
+                            ))}
+                        </p>
                     </div>
                     <p className="description">{movie.overview}</p>
                     {trailer ? (
