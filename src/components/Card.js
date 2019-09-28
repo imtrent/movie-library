@@ -30,7 +30,7 @@ const Card = ({
                         }}
                     ></div>
                 )}
-                <h4>{original_title}</h4>
+                <h3>{original_title}</h3>
                 <div className="info">
                     <div className="rating">
                         <p>{vote_average}</p>
@@ -44,7 +44,7 @@ const Card = ({
                             />
                         </svg>
                     </div>
-                    <p>{release}</p>
+                    <p>{release ? release : 'Release N/A'}</p>
                 </div>
             </Link>
         </div>
