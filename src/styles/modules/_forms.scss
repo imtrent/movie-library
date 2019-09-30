@@ -1,0 +1,37 @@
+#search {
+    .input {
+        position: relative;
+    }
+    input {
+        background-color: $light-gray;
+        height: 35px;
+        border: none;
+        border-radius: 17.5px;
+        width: 300px;
+        padding: 0 2rem;
+        font-size: 1.6rem;
+        box-sizing: border-box;
+        color: darken($dark-gray, 30%);
+    }
+
+    button[type='submit'] {
+        position: absolute;
+        padding: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        margin-right: 2rem;
+        cursor: pointer;
+        font-size: 0;
+
+        svg {
+            width: 14px;
+            height: 14px;
+            path {
+                fill: darken($dark-gray, 30%);
+            }
+        }
+    }
+}
