@@ -11,35 +11,33 @@ import Footer from './../components/Footer';
 const AppRouter = () => {
     return (
         <BrowserRouter>
-            <div className="container">
-                <Header />
-                <Switch>
-                    <Route path="/" exact={true}>
-                        <Redirect from="/" to="/browse/popular" />
-                    </Route>
-                    <Route path="/browse" exact={true}>
-                        <Redirect from="/browse" to="/browse/popular" />
-                    </Route>
-                    <Route
-                        path="/browse/:type"
-                        exact={true}
-                        render={props => <Browse {...props} />}
-                    />
-                    <Route
-                        path="/genre/:type"
-                        render={props => <Genre {...props} />}
-                    />
-                    <Route
-                        path="/movie/:id"
-                        render={props => <MovieDetails {...props} />}
-                    />
-                    <Route
-                        path="/search/:search"
-                        render={props => <Search {...props} />}
-                    />
-                    <Route component={NotFound} />
-                </Switch>
-            </div>
+            <Header />
+            <Switch>
+                <Route path="/" exact={true}>
+                    <Redirect from="/" to="/browse/popular" />
+                </Route>
+                <Route path="/browse" exact={true}>
+                    <Redirect from="/browse" to="/browse/popular" />
+                </Route>
+                <Route
+                    path="/browse/:type"
+                    exact={true}
+                    render={props => <Browse {...props} />}
+                />
+                <Route
+                    path="/genre/:type"
+                    render={props => <Genre {...props} />}
+                />
+                <Route
+                    path="/movie/:id"
+                    render={props => <MovieDetails {...props} />}
+                />
+                <Route
+                    path="/search/:search"
+                    render={props => <Search {...props} />}
+                />
+                <Route component={NotFound} />
+            </Switch>
             <Footer />
         </BrowserRouter>
     );

@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 
 const Search = props => {
     const [value, setValue] = useState('');
     const [error, setError] = useState(false);
+    const history = useHistory();
 
     const handleChange = e => {
-        setValue(e.target.value);
+        setValue(e.target.value.trim());
     };
 
     const handleSubmit = e => {
+        setError(false);
         e.preventDefault();
         if (value.length !== 0) {
             setError(false);
-            props.history.push(`/search/${value}`);
-            document.querySelector('input[name="search"]').value = '';
+            document.querySelectorAll('input[name="search"]').forEach(input => {
+                input.value = '';
+            });
+            history.push(`/search/${value}`);
         } else {
             setError(true);
         }
@@ -39,6 +44,7 @@ const Search = props => {
                     Search
                 </button>
             </div>
+            {error ? <p>test</p> : null}
         </form>
     );
 };

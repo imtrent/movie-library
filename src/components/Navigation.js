@@ -1,29 +1,43 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import Genres from './Genres';
 
 const Navigation = props => {
-    let genre = window.location.pathname.includes('genre');
+    const location = useLocation();
+    const isGenre = location.pathname.includes('genre');
+
     return (
         <nav>
             <ul className="nav-list">
                 <li>
-                    <NavLink to="/browse/popular" activeClassName="active">
+                    <NavLink
+                        to="/browse/popular"
+                        activeClassName="active"
+                        onClick={props.routeChange}
+                    >
                         Popular
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/browse/top-rated" activeClassName="active">
+                    <NavLink
+                        to="/browse/top-rated"
+                        activeClassName="active"
+                        onClick={props.routeChange}
+                    >
                         Top Rated
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/browse/upcoming" activeClassName="active">
+                    <NavLink
+                        to="/browse/upcoming"
+                        activeClassName="active"
+                        onClick={props.routeChange}
+                    >
                         Upcoming
                     </NavLink>
                 </li>
                 <li>
-                    <p className={genre ? 'active' : null}>Genres</p>
+                    <p className={isGenre ? 'active' : null}>Genre</p>
                     <Genres />
                 </li>
             </ul>
