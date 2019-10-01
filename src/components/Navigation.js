@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Genres from './Genres';
 
-const Navigation = props => {
+const Navigation = ({ routeChange }) => {
     const location = useLocation();
     const isGenre = location.pathname.includes('genre');
 
@@ -13,7 +13,7 @@ const Navigation = props => {
                     <NavLink
                         to="/browse/popular"
                         activeClassName="active"
-                        onClick={props.routeChange}
+                        onClick={routeChange}
                     >
                         Popular
                     </NavLink>
@@ -22,7 +22,7 @@ const Navigation = props => {
                     <NavLink
                         to="/browse/top-rated"
                         activeClassName="active"
-                        onClick={props.routeChange}
+                        onClick={routeChange}
                     >
                         Top Rated
                     </NavLink>
@@ -31,7 +31,7 @@ const Navigation = props => {
                     <NavLink
                         to="/browse/upcoming"
                         activeClassName="active"
-                        onClick={props.routeChange}
+                        onClick={routeChange}
                     >
                         Upcoming
                     </NavLink>
