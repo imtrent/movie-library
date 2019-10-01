@@ -43,3 +43,23 @@ ul {
     padding-top: 14.7rem;
     background-color: lighten($light-gray, 3%);
 }
+
+.previous-location {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+        color: $primary-color;
+
+        svg path {
+            fill: $primary-color;
+        }
+    }
+
+    svg {
+        height: 12px;
+        width: 12px;
+        margin-right: 1rem;
+    }
+}

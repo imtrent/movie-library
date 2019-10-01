@@ -31,7 +31,8 @@ header {
 
         span {
             font-size: 3.2rem;
-            margin-right: 1rem;
+            margin-top: -0.2rem;
+            transform: rotate(20deg);
         }
     }
 
@@ -60,11 +61,11 @@ nav ul {
             transition: 0.27s ease;
 
             &.active {
-                color: $black;
+                color: $primary-color;
             }
 
             &:hover {
-                color: $black;
+                color: $primary-color;
             }
         }
 
