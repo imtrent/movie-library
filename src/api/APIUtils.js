@@ -1,4 +1,4 @@
-import { API, APIUrl, APIKey } from './../config';
+import { API, APIKey } from './../config';
 require('dotenv').config();
 
 export const getGenres = async () => {
