@@ -22,6 +22,10 @@ const Search = props => {
         } else {
             setError(true);
         }
+
+        setTimeout(() => {
+            setError(false);
+        }, 3000);
     };
 
     return (
@@ -44,7 +48,7 @@ const Search = props => {
                     Search
                 </button>
             </div>
-            {error ? <p>test</p> : null}
+            {error ? <p>Search cannot be empty!</p> : null}
         </form>
     );
 };

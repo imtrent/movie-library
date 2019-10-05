@@ -6,16 +6,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-content">
                     <p>MOVIAC</p>
-                    <p>
-                        Made with ♥ by{' '}
-                        <a
-                            href="https://iantrent.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Ian Trent
-                        </a>
-                    </p>
+                    <p>© Ian Trent</p>
                 </div>
             </div>
         </footer>

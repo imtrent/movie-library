@@ -6,11 +6,11 @@ export const MovieList = ({ movies }) => {
         return null;
     }
     return (
-        <div className="movies-wrapper">
+        <main className="movies-wrapper">
             {movies.results.map(movie => {
                 return <Card key={movie.id} {...movie} />;
             })}
-        </div>
+        </main>
     );
 };
 
