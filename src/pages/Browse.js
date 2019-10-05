@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import { getBrowse } from './../api/APIUtils';
+import Loading from './../components/utils/Loading';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
 
@@ -20,12 +21,22 @@ const Browse = props => {
 
     useEffect(() => {
         loadData(type, page);
-    }, [window.location.search, type]);
+    }, [type, page]);
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
-        <div>
-            <MovieList movies={movies} />
-            <Pagination page={movies.page} totalPages={movies.total_pages} />
+        <div className="wrapper">
+            <div className="container">
+                <h2>Browse {type.replace(/_/g, ' ')}</h2>
+                <MovieList movies={movies} />
+                <Pagination
+                    page={movies.page}
+                    totalPages={movies.total_pages}
+                />
+            </div>
         </div>
     );
 };
