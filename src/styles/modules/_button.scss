@@ -12,8 +12,8 @@
 
 .button {
     display: inline-block;
-    background-color: #e9f0fd;
-    color: #2c6acb;
+    background-color: #fde9e9;
+    color: $primary-color;
     font-size: 1.4rem;
     padding: 1rem 2rem;
     min-width: 80px;
@@ -30,7 +30,7 @@
     svg {
         margin-right: 1rem;
         path {
-            fill: #2c6acb;
+            fill: #fde9e9;
         }
     }
 
@@ -38,7 +38,7 @@
         svg path {
             fill: #e9f0fd;
         }
-        background-color: #2c6acb;
+        background-color: $primary-color;
         color: #e9f0fd;
     }
 }
