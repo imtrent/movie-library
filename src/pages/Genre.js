@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import queryString from 'query-string';
 import { getGenres, getGenre } from './../api/APIUtils';
 import MovieList from '../components/MovieList';
@@ -9,8 +10,9 @@ const Genre = props => {
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const { type } = useParams();
 
-    const type = '18';
+    const genreType = type;
     const page = queryString.parse(props.location.search).page || 1;
 
     const loadGenres = () => {
@@ -23,8 +25,8 @@ const Genre = props => {
             });
     };
 
-    const loadMovies = (type, page) => {
-        getGenre(type, page)
+    const loadMovies = (genreType, page) => {
+        getGenre(genreType, page)
             .then(res => {
                 setMovies(res.data);
             })
@@ -35,14 +37,22 @@ const Genre = props => {
 
     useEffect(() => {
         loadGenres();
-        loadMovies(type, page);
-    }, [window.location.search, type]);
+        loadMovies(genreType, page);
+    }, [genreType, page]);
 
     return (
-        <div className="content">
-            <h1>{props.match.params.type.replace(/-/g, ' ')}</h1>
-            <MovieList movies={movies} />
-            <Pagination page={movies.page} totalPages={movies.total_pages} />
+        <div className="wrapper">
+            <div className="container">
+                <div className="content">
+                    <h1>{genreType.replace(/-/g, ' ')}</h1>
+                    <p>Genre pages coming soon</p>
+                    <MovieList movies={movies} />
+                    <Pagination
+                        page={movies.page}
+                        totalPages={movies.total_pages}
+                    />
+                </div>
+            </div>
         </div>
     );
 };
