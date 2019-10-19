@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { posterURL } from './../config';
-import { getSingleMovie, getRecommended } from '../api/APIUtils';
+import { getSingleMovie, getCredits, getRecommended } from '../api/APIUtils';
 import MovieList from './../components/MovieList.js';
 import PreviousLocation from './../components/PreviousLocation';
+import Cast from './../components/Cast';
 
 const MovieDetails = props => {
     const movieId = props.match.params.id;
     const [movie, setMovie] = useState([]);
     const [recommended, setRecommended] = useState([]);
+    const [cast, setCast] = useState([]);
     const [trailer, setTrailer] = useState('');
     const [loading, setLoading] = useState(true);
 
@@ -21,6 +23,13 @@ const MovieDetails = props => {
         });
     };
 
+    const loadCast = id => {
+        getCredits(id).then(res => {
+            console.log(res);
+            setCast(res.cast);
+        });
+    };
+
     const loadRecommended = id => {
         getRecommended(id).then(res => {
             setRecommended(res);
@@ -29,6 +38,7 @@ const MovieDetails = props => {
 
     useEffect(() => {
         loadMovie(movieId);
+        loadCast(movieId);
         loadRecommended(movieId);
     }, [movieId]);
 
@@ -78,6 +88,7 @@ const MovieDetails = props => {
                                 </p>
                             </div>
                             <p className="description">{movie.overview}</p>
+                            <Cast cast={cast}></Cast>
                             {trailer ? (
                                 <a
                                     href={`https://www.youtube.com/watch?v=${trailer}`}
