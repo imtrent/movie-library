@@ -15,7 +15,16 @@ export const getSingleMovie = async id => {
         });
         return res.data;
     } catch (err) {
-        return console.log(err);
+        return err;
+    }
+};
+
+export const getCredits = async id => {
+    try {
+        const res = await API.get(`/movie/${id}/credits${APIKey}`);
+        return res.data;
+    } catch (err) {
+        return err;
     }
 };
 
@@ -24,7 +33,7 @@ export const getRecommended = async id => {
         const res = await API.get(`/movie/${id}/recommendations${APIKey}`);
         return res.data;
     } catch (err) {
-        return console.log(err);
+        return err;
     }
 };
 
