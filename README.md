@@ -1,8 +1,8 @@
-<img src="./preview.jpg" alt="Movie app preview">
-
 # 🍿 Movie Application
 
 Movie library built with React and TMDb API.
+
+<img src="./preview.png" alt="Movie app preview">
 
 ## 👨🏻‍💻 Development
 
