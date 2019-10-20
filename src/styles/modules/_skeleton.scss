@@ -1,0 +1,29 @@
+// .skeleton-image {
+//     position: relative;
+//     &::before {
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         background: linear-gradient(
+//             to right,
+//             $light-gray 8%,
+//             lighten(lightgray, 5%) 25%,
+//             $light-gray 50%
+//         );
+//         background-size: 200% 50px;
+//         height: 100%;
+//         width: 100%;
+//         animation: loader 1s linear infinite;
+//     }
+// }
+
+// @keyframes loader {
+//     0% {
+//         background-position: -280px 0;
+//     }
+
+//     100% {
+//         background-position: 200px 0;
+//     }
+// }

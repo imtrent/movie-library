@@ -30,13 +30,13 @@
     svg {
         margin-right: 1rem;
         path {
-            fill: #fde9e9;
+            fill: $primary-color;
         }
     }
 
     &:hover {
         svg path {
-            fill: #e9f0fd;
+            fill: white;
         }
         background-color: $primary-color;
         color: #e9f0fd;
