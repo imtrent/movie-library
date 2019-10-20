@@ -22,7 +22,7 @@ Create a copy of the .env.example file, and change the file name to `.env`
 
 ## 🛠 Linting
 
-`npm run lint` will log linting errors the terminal.
+By default, `npm start` will log linting errors the terminal.
 
 If you have VSCode,
 -   Install the ESLint and Prettier extensions.
