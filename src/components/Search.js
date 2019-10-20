@@ -11,13 +11,13 @@ const Search = props => {
     };
 
     const handleSubmit = e => {
-        setError(false);
         e.preventDefault();
         if (value.length !== 0) {
-            setError(false);
             document.querySelectorAll('input[name="search"]').forEach(input => {
                 input.value = '';
             });
+            setValue('');
+            setError(false);
             history.push(`/search/${value}`);
         } else {
             setError(true);
@@ -48,7 +48,9 @@ const Search = props => {
                     Search
                 </button>
             </div>
-            {error ? <p>Search cannot be empty!</p> : null}
+            <p className={`error ${error ? 'active' : null}`}>
+                Search cannot be empty!
+            </p>
         </form>
     );
 };

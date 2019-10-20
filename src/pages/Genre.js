@@ -15,6 +15,8 @@ const Genre = props => {
     const genreType = type;
     const page = queryString.parse(props.location.search).page || 1;
 
+    const getData = async () => {};
+
     const loadGenres = () => {
         getGenres()
             .then(res => {

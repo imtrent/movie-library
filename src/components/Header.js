@@ -41,7 +41,7 @@ const Header = props => {
                 <div className="header-content">
                     <Link to="/">
                         <h1>
-                            <span role="img" aria-label="Clapper Board">
+                            <span role="img" aria-label="Popcorn">
                                 🍿
                             </span>
                             MOVIAC

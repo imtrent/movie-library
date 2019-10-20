@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { posterURL } from './../config';
 
@@ -9,6 +9,8 @@ const Card = ({
     poster_path,
     id
 }) => {
+    const [loaded, setLoaded] = useState(false);
+
     let release = new Date(release_date);
     release = release.getFullYear();
 
@@ -17,7 +19,9 @@ const Card = ({
             <Link to={`/movie/${id}`}>
                 {poster_path ? (
                     <div
-                        className="poster"
+                        className={`poster ${
+                            !loaded ? 'skeleton-image' : null
+                        }`}
                         style={{
                             backgroundImage: `url(${posterURL}/${poster_path})`
                         }}
