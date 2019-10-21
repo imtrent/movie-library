@@ -5,8 +5,14 @@ const Footer = () => {
         <footer>
             <div className="container">
                 <div className="footer-content">
-                    <p>MOVIAC</p>
                     <p>© Ian Trent</p>
+                    <a
+                        href="https://github.com/imtrent/movie-library"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Repository
+                    </a>
                 </div>
             </div>
         </footer>

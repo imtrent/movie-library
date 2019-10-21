@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
-const Search = props => {
+const Search = ({ routeChange }) => {
     const [value, setValue] = useState('');
     const [error, setError] = useState(false);
     const history = useHistory();
@@ -18,6 +18,7 @@ const Search = props => {
             });
             setValue('');
             setError(false);
+            routeChange();
             history.push(`/search/${value}`);
         } else {
             setError(true);
@@ -49,7 +50,7 @@ const Search = props => {
                 </button>
             </div>
             <p className={`error ${error ? 'active' : null}`}>
-                Search cannot be empty!
+                Search can't be empty!
             </p>
         </form>
     );

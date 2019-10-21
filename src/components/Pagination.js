@@ -4,16 +4,14 @@ import { Link } from 'react-router-dom';
 const Pagination = ({ page, totalPages }) => {
     const url = window.location.pathname;
 
-    const scrollTop = window.scrollTo({ top: 0, behavior: 'smooth' });
+    // const scrollTop = () => {
+    //     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // };
 
     return (
         <div className="pagination">
             {page === 1 || page === 0 ? null : (
-                <Link
-                    to={`${url}?page=${page * 1 - 1}`}
-                    className="button"
-                    onClick={scrollTop}
-                >
+                <Link to={`${url}?page=${page * 1 - 1}`} className="button">
                     Page {page * 1 - 1}
                 </Link>
             )}
@@ -21,7 +19,6 @@ const Pagination = ({ page, totalPages }) => {
                 <Link
                     to={`${url}?page=${page * 1 + 1}`}
                     className="button plus"
-                    onClick={scrollTop}
                 >
                     Page {page * 1 + 1}
                 </Link>

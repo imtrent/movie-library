@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { posterURL } from './../config';
 
@@ -9,19 +9,17 @@ const Card = ({
     poster_path,
     id
 }) => {
-    const [loaded, setLoaded] = useState(false);
-
     let release = new Date(release_date);
     release = release.getFullYear();
 
+    // Lazy Load Images
     return (
         <div className="card">
             <Link to={`/movie/${id}`}>
                 {poster_path ? (
                     <div
-                        className={`poster ${
-                            !loaded ? 'skeleton-image' : null
-                        }`}
+                        className="poster"
+                        data-src={`${posterURL}/${poster_path}`}
                         style={{
                             backgroundImage: `url(${posterURL}/${poster_path})`
                         }}

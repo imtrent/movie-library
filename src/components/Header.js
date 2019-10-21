@@ -17,6 +17,15 @@ const Header = props => {
         setStopScroll(false);
     };
 
+    const checkDimensions = () => {
+        if (window.innerWidth > 1024) {
+            setMobileMenu(false);
+            setStopScroll(false);
+        }
+    };
+
+    window.addEventListener('resize', checkDimensions);
+
     if (mobileMenu) {
         document.querySelector('html').classList.add('mobile-active');
     } else {
