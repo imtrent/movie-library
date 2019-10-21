@@ -19,15 +19,6 @@ export const getSingleMovie = async id => {
     }
 };
 
-export const getCredits = async id => {
-    try {
-        const res = await API.get(`/movie/${id}/credits${APIKey}`);
-        return res.data;
-    } catch (err) {
-        return err;
-    }
-};
-
 export const getRecommended = async id => {
     try {
         const res = await API.get(`/movie/${id}/recommendations${APIKey}`);
@@ -38,22 +29,30 @@ export const getRecommended = async id => {
 };
 
 export const getBrowse = async (type, page = '1') => {
-    const res = await API.get(`/movie/${type}${APIKey}`, {
-        params: {
-            page
-        }
-    });
-    return res;
+    try {
+        const res = await API.get(`/movie/${type}${APIKey}`, {
+            params: {
+                page
+            }
+        });
+        return res;
+    } catch (err) {
+        return err;
+    }
 };
 
 export const getGenre = async (type, page = '1') => {
-    const res = await API.get(`/discover/movie${APIKey}`, {
-        params: {
-            with_genres: type,
-            page
-        }
-    });
-    return res;
+    try {
+        const res = await API.get(`/discover/movie${APIKey}`, {
+            params: {
+                with_genres: type,
+                page
+            }
+        });
+        return res;
+    } catch (err) {
+        return err;
+    }
 };
 
 export const getSearch = async (search, page) => {
