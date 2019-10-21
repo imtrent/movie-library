@@ -15,6 +15,7 @@
 
         &:focus {
             border: 1px solid darken($light-gray, 25%);
+            outline: none;
         }
     }
 

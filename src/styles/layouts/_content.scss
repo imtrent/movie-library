@@ -1,7 +1,24 @@
 .content {
-    h1 {
-        font-size: 2.8rem;
-        font-weight: $font-med;
-        text-transform: capitalize;
+    .heading {
+        margin-bottom: 1.5rem;
+        h1 {
+            @media screen and (min-width: 640px) {
+                font-size: 2.8rem;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: 3.2rem;
+            }
+            text-transform: capitalize;
+            font-weight: $font-med;
+            font-size: 2.2rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .page-desc {
+            color: $dark-gray;
+            font-weight: normal;
+            font-size: 1.4rem;
+        }
     }
 }

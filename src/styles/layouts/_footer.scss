@@ -5,13 +5,23 @@ footer {
         justify-content: space-between;
         padding: 5rem 0;
 
-        p {
+        p, a {
             margin: 0;
             font-size: 1.4rem;
             color: black;
-            a {
-                color: $primary-color;
-            }
         }
+
+        a:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+.cast {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        margin: 10px;
     }
 }

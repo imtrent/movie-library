@@ -12,56 +12,50 @@ ul {
     list-style-type: none;
 }
 
-.no-results {
-    height: calc(100vh - 283px);
+.wrapper {
+    padding-top: 14.7rem;
+    background-color: lighten($light-gray, 3%);
+}
+
+.app-error, .no-results, .loading {
+    height: calc(100vh - 116px);
+    margin-top: -14.7rem;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    font-size: 1.6rem;
-    color: $dark-gray;
-
-    h2 {
-        margin: 0;
-        color: $black;
-    }
-
-    p {
-        margin: 2.5rem;
-    }
+    flex-direction: column;
+    text-align: center;
 
     strong {
         color: $primary-color;
     }
-}
 
-.loading {
-    height: 100vh;
-}
-
-.wrapper {
-    padding-top: 14.7rem;
-    background-color: lighten($light-gray, 3%);
-
-    h2 {
-        text-transform: capitalize;
-        font-weight: $font-med;
-        font-size: 3.0rem;
-        margin: 0 0 1.5rem 0;
+    h1 {
+        font-size: 3rem;
+        margin: 0;
     }
-
-    .page-desc {
+    p {
+        margin: 3rem;
+        font-size: 1.6rem;
         color: $dark-gray;
-        font-weight: normal;
-        font-size: 1.4rem;
-        margin-bottom: 1.5rem;
     }
 }
 
 .previous-location {
+    @media screen and (min-width: 640px) {
+        margin: 0 0 3rem;
+    }
+    @media screen and (min-width: 1024px) {
+        margin: 0 0 5rem;
+    }
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+    margin: 3rem 0;
+
+    p {
+        margin: 0;
+    }
 
     &:hover {
         color: $primary-color;
