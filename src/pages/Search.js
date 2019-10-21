@@ -5,6 +5,7 @@ import { getSearch } from './../api/APIUtils';
 import Loading from './../components/utils/Loading';
 import MovieList from '../components/MovieList';
 import Pagination from '../components/Pagination';
+import AppError from './../components/utils/AppError';
 
 const Search = () => {
     const [movies, setMovies] = useState([]);
@@ -25,6 +26,7 @@ const Search = () => {
             .then(res => {
                 setMovies(res.data);
                 setLoading(false);
+                setError(false);
             })
             .catch(err => {
                 setError(true);
@@ -32,15 +34,24 @@ const Search = () => {
     };
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         loadData(query, page);
     }, [query, page]);
 
     if (loading) {
-        return <Loading />;
+        return (
+            <div className="wrapper">
+                <Loading />
+            </div>
+        );
     }
 
     if (error) {
-        return <p>test</p>;
+        return (
+            <div className="wrapper">
+                <AppError />
+            </div>
+        );
     }
 
     if (movies.results === undefined || movies.results.length === 0) {
@@ -48,7 +59,7 @@ const Search = () => {
             <div className="wrapper">
                 <div className="container">
                     <div className="no-results">
-                        <h2>Oh No!</h2>
+                        <h1>Oh No!</h1>
                         <p>
                             It looks like there were no results found for{' '}
                             <strong>{query}</strong>
@@ -65,11 +76,16 @@ const Search = () => {
     return (
         <div className="wrapper">
             <div className="container">
-                <MovieList movies={movies} />
-                <Pagination
-                    page={movies.page}
-                    totalPages={movies.total_pages}
-                />
+                <div className="content">
+                    <div className="heading">
+                        <h1>{query}</h1>
+                    </div>
+                    <MovieList movies={movies} />
+                    <Pagination
+                        page={movies.page}
+                        totalPages={movies.total_pages}
+                    />
+                </div>
             </div>
         </div>
     );

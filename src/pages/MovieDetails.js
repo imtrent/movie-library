@@ -1,33 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { posterURL } from './../config';
-import { getSingleMovie, getCredits, getRecommended } from '../api/APIUtils';
+import { getSingleMovie, getRecommended } from '../api/APIUtils';
 import MovieList from './../components/MovieList.js';
 import PreviousLocation from './../components/PreviousLocation';
-import Cast from './../components/Cast';
+import Loading from './../components/utils/Loading';
+import AppError from './../components/utils/AppError';
 
 const MovieDetails = props => {
     const movieId = props.match.params.id;
     const [movie, setMovie] = useState([]);
     const [recommended, setRecommended] = useState([]);
-    const [cast, setCast] = useState([]);
     const [trailer, setTrailer] = useState('');
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     const loadMovie = id => {
-        getSingleMovie(id).then(res => {
-            setMovie(res);
-            if (res.videos.results.length !== 0) {
-                setTrailer(res.videos.results[0].key);
-            }
-            setLoading(false);
-        });
-    };
-
-    const loadCast = id => {
-        getCredits(id).then(res => {
-            console.log(res);
-            setCast(res.cast);
-        });
+        getSingleMovie(id)
+            .then(res => {
+                setMovie(res);
+                if (res.videos.results.length !== 0) {
+                    setTrailer(res.videos.results[0].key);
+                }
+                setLoading(false);
+                setError(false);
+            })
+            .catch(err => {
+                setError(true);
+            });
     };
 
     const loadRecommended = id => {
@@ -37,19 +36,39 @@ const MovieDetails = props => {
     };
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         loadMovie(movieId);
-        loadCast(movieId);
         loadRecommended(movieId);
     }, [movieId]);
 
+    // Get the year that the movie was released
     let release = movie.release_date;
     release = new Date(release).getFullYear();
 
+    // Convert runtime into hours and minutes
     let runtime = movie.runtime;
     runtime = `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
 
+    // If runtime is 0 hours, just show the minutes
+    if (runtime.match(/0h/g)) {
+        runtime = runtime.split(' ')[1];
+    }
+
+    // If api data is loading, let the user know the data is loading
     if (loading) {
-        return 'is loading';
+        return (
+            <div className="wrapper">
+                <Loading />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="wrapper">
+                <AppError />
+            </div>
+        );
     }
 
     return (
@@ -88,7 +107,6 @@ const MovieDetails = props => {
                                 </p>
                             </div>
                             <p className="description">{movie.overview}</p>
-                            <Cast cast={cast}></Cast>
                             {trailer ? (
                                 <a
                                     href={`https://www.youtube.com/watch?v=${trailer}`}
@@ -119,9 +137,9 @@ const MovieDetails = props => {
                         recommended.results.length !== 0 ? (
                             <MovieList movies={recommended} />
                         ) : (
-                            <p>
-                                There are no recommendations based on the movie{' '}
-                                {movie.original_title}
+                            <p className="no-recommended">
+                                Sorry! There are no recommendations based on the
+                                movie {movie.original_title}
                             </p>
                         )}
                     </div>
