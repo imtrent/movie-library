@@ -28,7 +28,7 @@ const Card = ({
                     <div
                         className="poster"
                         style={{
-                            backgroundImage: `url('/images/poster.png')`
+                            backgroundImage: `url('./images/poster.png')`
                         }}
                     ></div>
                 )}
